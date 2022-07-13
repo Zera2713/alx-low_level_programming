@@ -1,35 +1,36 @@
 #include "main.h"
 
 /**
- * print_number - print an integer, without using long, arrays, or pointers
- * @n: number to be printed
+ * rot13 - encode string using rot13
+ * @s: string to encode
+ * Return: encoded string
  */
 
-void print_number(int n)
+char *rot13(char *s)
 {
-	unsigned int tens, digit, positive = n;
-	double t_beg = 1;
 
-	if (n == 0)
-		_putchar('0');
-	else
+	int a[53] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+		     'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+		     'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+		     'W', 'X', 'Y', 'Z'};
+	int b[53] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+		     'l', 'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+		     'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+		     'J', 'K', 'L', 'M'};
+
+	int i, j;
+
+	for (j = 0; s[j] != '\0'; j++) /*loop through string*/
 	{
-		if (n < 0)
-		{
-			positive = n * -1;
-			_putchar('-');
-		}
+		i = 0;
+		while (a[i] != '\0' && s[j] != a[i]) /*loop through rot13 arr*/
+			i++;
 
-		while (t_beg <= positive)
-			t_beg *= 10;
-		tens = t_beg / 10;
-
-		while (tens >= 1)
-		{
-			digit = positive / tens;
-			_putchar(digit + '0');
-			positive = (positive - (tens * digit));
-			tens /= 10;
-		}
+		if (s[j] == a[i]) /*if alpha matches, set to index in b arr*/
+			s[j] = b[i];
 	}
+
+	return (s);
 }
