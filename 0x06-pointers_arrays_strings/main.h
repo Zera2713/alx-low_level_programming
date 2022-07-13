@@ -14,7 +14,11 @@ void reverse_array(int *a, int n);
 char *string_toupper(char *s);
 char *cap_string(char *s);
 char *leet(char *s);
-char *rot13(char *s);
 int _putchar(char c);
 void print_array(int *a, int n);
+void print_number(int n);
+char *rot13(char *);
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+char *add_strings(char *n1, char *n2, char *r, int r_index);
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
 
