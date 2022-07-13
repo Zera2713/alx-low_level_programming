@@ -20,5 +20,3 @@ void reverse_array(int *a, int n)
 		beg++, end--;
 	}
 }
-Footer
-© 2022 GitHub, Inc.
